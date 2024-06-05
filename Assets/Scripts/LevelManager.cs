@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
     }
     public void OpenReward()
     {
-        rewardTransform.DORotate(new Vector3(-55, -180, 0), 1).OnComplete(OnRewardOpened);
+        rewardTransform.DOLocalRotate(new Vector3(-55, 0, 0), 1).OnComplete(OnRewardOpened);
     }
     private void OnRewardOpened()
     {
