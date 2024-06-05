@@ -36,6 +36,7 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
         {
             levelManager = GetComponent<LevelManager>();
         }
+        Roulette.onRouletteSpinned += AttackNextStep;
         Player.onDestinationArrived += ContinueFight;
         onAllEnemiesDied += EndBattle;
         Player.onPlayerDead += StopGamePlayerDead;
@@ -45,6 +46,7 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
         onAllEnemiesDied -= EndBattle;
         Player.onDestinationArrived -= ContinueFight;
         Player.onPlayerDead -= StopGamePlayerDead;
+        Roulette.onRouletteSpinned -= AttackNextStep;
     }
     private void Update()
     {
@@ -83,11 +85,8 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
     private void StopGamePlayerDead()
     {
         GameManager.onEndGame?.Invoke();
-        //enemyInBattle = null;
         isWaitingForGiveDamage = false;
         UIManager.instance.ViewAttackUI(false);
-        //UIManager.instance.ShowWinPanel();
-        //InfoController.instance.ReceiveMoney(UnityEngine.Random.Range(0, 1));
         UIManager.instance.ShowLosePanel();
         UIManager.instance.isGameEnd = true;
     }
@@ -112,7 +111,7 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
     public void Attack(AttackType type=AttackType.SWORD)
     {
         diceRollResult = Dice.instance.GetRoll();
-        UIManager.instance.ShowDiceRollResult(diceRollResult.ToString());
+        //UIManager.instance.ShowDiceRollResult(diceRollResult.ToString());
         if (turn==Turn.PLAYER)
         {
             switch (type)
@@ -128,13 +127,18 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
                         break;
                     }
             }
-            StartCoroutine(Wait1Sec());
+            //StartCoroutine(Wait1Sec());
         }
         else
         {
             enemyInBattle.animator.SetTrigger("attack");
-            StartCoroutine(Wait1Sec());
+            //StartCoroutine(Wait1Sec());
         }
+    }
+    public void AttackNextStep(int dmg)
+    {
+        diceRollResult = dmg;
+        isWaitingForGiveDamage = true;
     }
     public void SwitchTurn()
     {

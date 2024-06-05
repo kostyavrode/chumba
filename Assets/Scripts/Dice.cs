@@ -6,6 +6,7 @@ public class Dice : MonoBehaviour
 {
     public static Dice instance;
     public DiceRoller diceRoller;
+    public Roulette roulette;
     public GameObject diceObj;
     private void Awake()
     {
@@ -13,9 +14,11 @@ public class Dice : MonoBehaviour
     }
     public int GetRoll()
     {
-        int r = Random.Range(1, 6);
         diceObj.SetActive(true);
-        diceRoller.Roll(r);
+        int r = Random.Range(1, 6);
+        
+        // diceRoller.Roll(r);
+        roulette.Rotete();
         return r;
     }
 }
