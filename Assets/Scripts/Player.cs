@@ -74,7 +74,7 @@ public class Player : MonoBehaviour, IWarrior
     public void MoveTo(Vector3 destination)
     {
         animator.SetBool("run",true);
-        transform.DOMove(new Vector3(destination.x+0.2f,destination.y,destination.z-0.5f), 3).SetEase(Ease.Linear).OnComplete(StopRun);
+        transform.DOMove(new Vector3(destination.x+0f,destination.y,destination.z-1f), 3).SetEase(Ease.Linear).OnComplete(StopRun);
     }
     public void PlayChestOpenAnim()
     {
