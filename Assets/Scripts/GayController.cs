@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoController : MonoBehaviour, IGameFinishedListener
+public class GayController : MonoBehaviour, IGameFinishedListener
 {
-    public static InfoController instance;
+    public static GayController instance;
     public void Start()
-    {
+    { 
         instance = this;
         if (!PlayerPrefs.HasKey("Money"))
         {

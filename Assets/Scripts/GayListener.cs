@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ RequireComponent(typeof(GameManager))]
-public class GameListenerInstaller : MonoBehaviour
+public class GayListener : MonoBehaviour
 {
-    [SerializeField] private CameraFollower component;
+    [SerializeField] private CameraRayanGossling component;
 
-    private void Awake()
+    private void Awake() 
     {
         GameManager gameManager = GetComponent<GameManager>();
         IGameListener[] listeners = GetComponentsInChildren<IGameListener>();

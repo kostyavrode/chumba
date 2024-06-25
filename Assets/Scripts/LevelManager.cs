@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public Transform playerSpawnPoint;
     public Enemy[] enemiesPrefabs;
     public List<Enemy> spawnedEnemies;
-    public Player player;
+    public Character player;
     public Enemy currentEnemy;
     public Transform rewardTransform;
     public Transform finalDestination;

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoHandler : MonoBehaviour
+public class GayHandler : MonoBehaviour
 {
     public int level;
-    public int hp;
+    public int hp; 
     public int armor;
     public int damage;
     private void Awake()

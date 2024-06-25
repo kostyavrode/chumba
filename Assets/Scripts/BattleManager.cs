@@ -15,7 +15,7 @@ public enum AttackType
 
 public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedListener
 {
-    public static Action onPlayerTurnMaked;
+    public static Action onPlayerTurnMaked; 
     public static Action<Enemy> onEnemyChanged;
     public static Action onTurnSwitch;
     public static Action onAllEnemiesDied;
@@ -36,17 +36,17 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
         {
             levelManager = GetComponent<LevelManager>();
         }
-        Roulette.onRouletteSpinned += AttackNextStep;
-        Player.onDestinationArrived += ContinueFight;
+        MilkyHey.onRouletteSpinned += AttackNextStep;
+        Character.onDestinationArrived += ContinueFight;
         onAllEnemiesDied += EndBattle;
-        Player.onPlayerDead += StopGamePlayerDead;
+        Character.onPlayerDead += StopGamePlayerDead;
     }
     private void OnDisable()
     {
         onAllEnemiesDied -= EndBattle;
-        Player.onDestinationArrived -= ContinueFight;
-        Player.onPlayerDead -= StopGamePlayerDead;
-        Roulette.onRouletteSpinned -= AttackNextStep;
+        Character.onDestinationArrived -= ContinueFight;
+        Character.onPlayerDead -= StopGamePlayerDead;
+        MilkyHey.onRouletteSpinned -= AttackNextStep;
     }
     private void Update()
     {
@@ -189,7 +189,7 @@ public class BattleManager : MonoBehaviour, IGameStartListener, IGameFinishedLis
         MovePlayerToReward();
         UIManager.instance.ViewAttackUI(false);
         levelManager.player.PlayChestOpenAnim();
-        InfoController.instance.ReceiveMoney(UnityEngine.Random.Range(8, 10));
+        GayController.instance.ReceiveMoney(UnityEngine.Random.Range(8, 10));
     }
     private void CheckDistanceBetweenEnemy()
     {

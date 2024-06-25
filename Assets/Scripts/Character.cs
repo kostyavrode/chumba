@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
-public class Player : MonoBehaviour, IWarrior
+public class Character : MonoBehaviour, IWarrior
 {
     public static Action onDestinationArrived;
-    public static Action onPlayerDead;
+    public static Action onPlayerDead; 
     public Animator animator;
     private int damage=5;
     public int hp=50;

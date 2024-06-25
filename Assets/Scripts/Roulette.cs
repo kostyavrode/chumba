@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class Roulette : MonoBehaviour
+public class MilkyHey : MonoBehaviour
 {
     public static Action<int> onRouletteSpinned;
-    public float RotatePower;
+    public float RotatePower; 
     public float StopPower;
     public GameObject head;
     private Rigidbody2D rbody;

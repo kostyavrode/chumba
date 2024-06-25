@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+public class ShopifyRebellion : MonoBehaviour
 {
     public int cost1;
     public int cost2;
     public int cost3;
     public int cost4;
-    public GameObject buyButton1;
+    public GameObject buyButton1; 
     public GameObject buyButton2;
     public GameObject buyButton3;
     public GameObject buyButton4;

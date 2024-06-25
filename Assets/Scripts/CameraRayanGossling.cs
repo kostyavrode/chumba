@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class CameraFollower : MonoBehaviour, IGameStartListener
+public class CameraRayanGossling : MonoBehaviour, IGameStartListener
 {
     [SerializeField] private float trackingSpeed = 2f;
-    [SerializeField] private float offsetZ = 3f;
+    [SerializeField] private float offsetZ = 3f; 
     [SerializeField] private float offsetY = 3f;
     [SerializeField] private float offsetX = 0.66f;
     [SerializeField] private Transform target;

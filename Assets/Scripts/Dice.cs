@@ -5,8 +5,8 @@ using UnityEngine;
 public class Dice : MonoBehaviour
 {
     public static Dice instance;
-    public DiceRoller diceRoller;
-    public Roulette roulette;
+    public NicerDicer diceRoller;
+    public MilkyHey roulette;
     public GameObject diceObj;
     private void Awake()
     {
